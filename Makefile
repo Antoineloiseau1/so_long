@@ -3,25 +3,26 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+         #
+#    By: antoine <antoine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 17:24:39 by anloisea          #+#    #+#              #
-#    Updated: 2022/10/03 17:25:06 by anloisea         ###   ########.fr        #
+#    Updated: 2022/10/05 11:51:22 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 SRCS		= 	./srcs/main.c \
 				./srcs/get_map.c \
-				./srcs/free_map.c
+				./srcs/free_map.c \
+				./srcs/check_map.c
 				
 OBJS		=	${SRCS:.c=.o}
 
 HDR			=	so_long.h
 CFLAGS		= 	-Wall -Wextra -Werror
 CC			= 	gcc
-MINILIBX	= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
-INCLUDE		= -I /usr/local/include/			
+//MINILIBX	= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
+//INCLUDE		= -I /usr/local/include/			
 LIB			= ./libft/libft.a
 
 

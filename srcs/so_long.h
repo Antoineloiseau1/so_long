@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/03 17:24:53 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:56:25 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "../libft/libft.h"
 # include <fcntl.h>
+# include <errno.h>
+# include <mlx.h>
+# include <stdio.h>
 
 typedef struct s_mlx
 {
@@ -32,6 +35,7 @@ typedef struct s_mlx
 
 char	**get_map(int fd);
 void	free_map(char **map);
+int		check_map(char **map);
 
 
 #endif

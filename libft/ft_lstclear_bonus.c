@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonuc.c                                :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anloisea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 19:04:16 by anloisea          #+#    #+#             */
-/*   Updated: 2022/04/01 15:32:14 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:32:26 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst)
 {
 	t_list	*tmp;
 
 	tmp = *lst;
-	while (tmp && tmp->next)
+	while (tmp)
 	{
-		tmp = *lst;
-		del(tmp->content);
-		*lst = tmp->next;
+		*lst = (*(lst))->next;
 		free(tmp);
+		tmp = *lst;
 	}
-	lst = NULL;
-	free(lst);
 }

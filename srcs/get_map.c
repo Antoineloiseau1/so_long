@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:15:31 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/03 18:05:46 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:27:37 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,21 @@ char	**get_map(int fd)
 	lst = ft_lstnew((char *)get_next_line(fd));
 	tmp = lst;
 	i = 0;
-	while (lst->content)
+	while (tmp->content)
 	{
 		ft_lstadd_back(&lst, ft_lstnew((char *)get_next_line(fd)));
-		lst = lst->next;
+		tmp = tmp->next;
 		i++;
 	}
 	map = malloc((i + 1) * sizeof(*map));
 	i = 0;
+	tmp = lst;
 	while (tmp)
 	{
 		map[i] = (char *)tmp->content;
 		tmp = tmp->next;
 		i++;
 	}
-	ft_lstclear(&lst, free);
+	ft_lstclear(&lst);
 	return (map);
 }

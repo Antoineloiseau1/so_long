@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:41:28 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/06 15:08:36 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/10 17:42:07 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	tab_len(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-		i++;
-	return (i);
-}
 
 int	is_closed(char **map, int rows)
 {
@@ -29,14 +19,14 @@ int	is_closed(char **map, int rows)
 
 	i = 0;
 	j = 1;
-	while(map[0][i] != '\n' && map[0][i])
+	while (map[0][i] != '\n' && map[0][i])
 	{
 		if (map[0][i] != '1')
 			return (0);
 		i++;
 	}
 	i = 0;
-	while(map[rows - 1][i] != '\n' && map[rows -1][i])
+	while (map[rows -1][i])
 	{
 		if (map[rows - 1][i] != '1')
 			return (0);
@@ -44,7 +34,7 @@ int	is_closed(char **map, int rows)
 	}
 	while (j < rows -1)
 	{
-		if (map[j][0] != '1' || map[j][ft_strlen(map[j]) -2] != '1')
+		if (map[j][0] != '1' || map[j][ft_strlen(map[j]) - 2] != '1')
 			return (0);
 		j++;
 	}
@@ -82,9 +72,8 @@ int	check_items(t_data *data)
 				data->position++;
 			if (data->map[i][j] == 'E')
 				data->exit++;
-			if (data->map[i][j] == 'C')
+			if (data->map[i][j++] == 'C')
 				data->items++;
-			j++;
 		}
 		i++;
 	}
@@ -103,10 +92,12 @@ int	check_map(t_data *data)
 
 	rows = tab_len(data->map);
 	if (is_rectangular(data->map, rows) == 0)
-		ft_printf("map is not rectangular\n");
+		map_error(data, 4, "map must be rectangular\n");
 	if (is_closed(data->map, rows) == 0)
-		ft_printf("map is not closed\n");
+		map_error(data, 5, "map must be closed\n");
 	if (check_items(data) == 0)
-		ft_printf("must contain at least one of each: START, EXIT, ITEM\n");
+		map_error(data, 6, "map must contains 1 'E', 1 'P' & at least 1 'C'\n");
+	if (is_playable(data, rows) == 0)
+		map_error(data, 7, "map is not playable\n");
 	return (0);
 }

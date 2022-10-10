@@ -1,0 +1,57 @@
+1111111111111111111111111
+1001P0101000101E001010011
+100C000010111100101011101
+1111001001010001010111001
+1111111111111111111111111
+
+//recursive
+is_playable
+{
+	start at position
+	if (is_safe)
+	{
+		go
+		if (is_Coin)
+			coin--
+		if (is_exit)
+			exit--
+			if (coin == 0)
+				SUCCESS
+		mark X
+		save position
+		is_playable
+	}
+	return (FALSE)
+
+}
+
+
+//iterative
+is_playable
+{
+	start at P
+	while (there still is a possibility)
+	{
+		if (coin)
+			coin--
+		if (exit)
+			exit--
+		if (exit && coin == 0)
+			return SUCCESS
+		while (can go < ^ > or down)
+		{
+			if (possibilities > 1)
+				mark x
+				go to first ok position
+			else if (possibilities == 1)
+				mark 1
+				go to only position
+		}
+		return FALSE
+}
+1111111111111111111111111
+111111111000101E001010011
+1111111x10111100101011101
+1111111000000001010111C01
+1111111111111111111111111
+

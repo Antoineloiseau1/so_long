@@ -1,42 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_map.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 16:15:31 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/10 13:11:03 by anloisea         ###   ########.fr       */
+/*   Created: 2022/10/10 13:09:13 by anloisea          #+#    #+#             */
+/*   Updated: 2022/10/10 17:53:03 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**get_map(int fd)
+int	tab_len(char **tab)
 {
-	t_list	*lst;
-	t_list	*tmp;
-	int		i;
-	char	**map;
+	int	i;
 
-	lst = ft_lstnew((char *)get_next_line(fd));
-	tmp = lst;
 	i = 0;
-	while (tmp->content)
-	{
-		ft_lstadd_back(&lst, ft_lstnew((char *)get_next_line(fd)));
-		tmp = tmp->next;
+	while (tab[i])
 		i++;
-	}
-	map = malloc((i + 1) * sizeof(*map));
-	i = 0;
-	tmp = lst;
-	while (tmp)
+	return (i);
+}
+
+
+int	get_position(t_data *data, int rows, char c)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < rows)
 	{
-		map[i] = (char *)tmp->content;
-		tmp = tmp->next;
-		i++;
+		y = 0;
+		while (data->map[x][y] != '\n' || data->map[x][y] != 0)
+		{
+			printf("%c", data->map[x][y]);
+			if (data->map[x][y] == c)
+			{
+				data->pos->x = x;
+				data->pos->y = y;
+				return (1);
+			}
+			y++;
+		}
+		x++;
 	}
-	ft_lstclear(&lst);
-	return (map);
+	return (0);
 }

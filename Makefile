@@ -3,26 +3,30 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antoine <antoine@student.42.fr>            +#+  +:+       +#+         #
+#    By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 17:24:39 by anloisea          #+#    #+#              #
-#    Updated: 2022/10/06 15:51:24 by antoine          ###   ########.fr        #
+#    Updated: 2022/10/10 17:26:11 by anloisea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
-SRCS		= 	./srcs/mlx_test.c \
+SRCS		= 	./srcs/main.c \
 				./srcs/get_map.c \
-				./srcs/free_map.c \
-				./srcs/check_map.c
+				./srcs/free_data.c \
+				./srcs/check_map.c \
+				./srcs/error.c \
+				./srcs/init_data.c \
+				./srcs/utils.c \
+				./srcs/is_playable.c
 				
 OBJS		=	${SRCS:.c=.o}
 
 HDR			=	so_long.h
-//CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror
 CC			= 	gcc
-//MINILIBX	= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
-MLX_LINUX 	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLX	= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
+//MLX_LINUX 	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 INCLUDE		= -I /usr/local/include/			
 LIB			= ./libft/libft.a
 
@@ -35,7 +39,7 @@ ${LIB}:
 			@make all -sC ./libft
 
 ${NAME}:	${LIB}	${OBJS}
-			${CC} ${CFLAGS} ${INCLUDE} ${OBJS} ${MLX_LINUX} -L./libft -lft -o ${NAME}
+			${CC} ${CFLAGS} ${INCLUDE} ${OBJS} ${MLX} -L./libft -lft -o ${NAME}
 			@echo "\033[92mso_long compiled successfully\033[0m"
 
 clean:

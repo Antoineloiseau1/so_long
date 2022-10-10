@@ -1,42 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_map.c                                          :+:      :+:    :+:   */
+/*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 16:15:31 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/10 13:11:03 by anloisea         ###   ########.fr       */
+/*   Created: 2022/10/10 12:01:47 by anloisea          #+#    #+#             */
+/*   Updated: 2022/10/10 13:11:01 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**get_map(int fd)
+void	init_data(t_data *data, int fd)
 {
-	t_list	*lst;
-	t_list	*tmp;
-	int		i;
-	char	**map;
-
-	lst = ft_lstnew((char *)get_next_line(fd));
-	tmp = lst;
-	i = 0;
-	while (tmp->content)
-	{
-		ft_lstadd_back(&lst, ft_lstnew((char *)get_next_line(fd)));
-		tmp = tmp->next;
-		i++;
-	}
-	map = malloc((i + 1) * sizeof(*map));
-	i = 0;
-	tmp = lst;
-	while (tmp)
-	{
-		map[i] = (char *)tmp->content;
-		tmp = tmp->next;
-		i++;
-	}
-	ft_lstclear(&lst);
-	return (map);
+	data->exit = 0;
+	data->items = 0;
+	data->position = 0;
+	data->map = get_map(fd);
 }

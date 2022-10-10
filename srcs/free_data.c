@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_map.c                                         :+:      :+:    :+:   */
+/*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:24:37 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/03 17:28:06 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:11:06 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_map(char **map)
+void	free_data(t_data *data)
 {
 	int	i;
 
 	i = 0;
-	while (map[i])
+	while (data->map[i])
 	{
-		free(map[i]);
+		free(data->map[i]);
 		i++;
 	}
-	free(map);
+	free(data->map);
+	free(data);
 }

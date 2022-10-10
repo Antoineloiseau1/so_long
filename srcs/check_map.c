@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:41:28 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/05 13:50:55 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/06 15:08:36 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,46 @@ int	is_rectangular(char **map, int rows)
 	return (1);
 }	
 
-int	check_map(char **map)
+int	check_items(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == 'P')
+				data->position++;
+			if (data->map[i][j] == 'E')
+				data->exit++;
+			if (data->map[i][j] == 'C')
+				data->items++;
+			j++;
+		}
+		i++;
+	}
+	if (data->position != 1)
+		return (0);
+	if (data->exit != 1)
+		return (0);
+	if (data->items < 1)
+		return (0);
+	return (1);
+}
+
+int	check_map(t_data *data)
 {
 	int	rows;
 
-	rows = tab_len(map);
-	if (is_rectangular(map, rows) == 0)
+	rows = tab_len(data->map);
+	if (is_rectangular(data->map, rows) == 0)
 		ft_printf("map is not rectangular\n");
-	if (is_closed(map, rows) == 0)
+	if (is_closed(data->map, rows) == 0)
 		ft_printf("map is not closed\n");
+	if (check_items(data) == 0)
+		ft_printf("must contain at least one of each: START, EXIT, ITEM\n");
 	return (0);
 }

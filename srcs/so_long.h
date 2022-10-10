@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/05 13:56:25 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/06 15:35:47 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,24 @@
 
 typedef struct s_mlx
 {
-	void		*mlx;
+	void		*ptr;
 	void		**textures;
 	void		*win;
 	char		**map;
 }				t_mlx;
 
-// typedef	struct s_map
-// {
-// 	char		*line;
-// 	struct s_map *next;
-// }				t_map;
+typedef struct s_data
+{
+	char	**map;
+	int		position;
+	int		exit;
+	int		items;
+}			t_data;
 
 char	**get_map(int fd);
 void	free_map(char **map);
-int		check_map(char **map);
+int		check_map(t_data *data);
+int	tab_len(char **tab);
 
 
 #endif

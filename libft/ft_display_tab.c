@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:13:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/03 17:16:02 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:22:42 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_display_tab(char **tab)
 	while (tab[i])
 	{
 		ft_printf(tab[i]);
+		ft_printf("\n");
 		i++;
 	}
-	ft_putchar_fd('\n', 1);
 }

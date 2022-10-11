@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:41:28 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/10 17:42:07 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:55:09 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_closed(char **map, int rows)
 
 	i = 0;
 	j = 1;
-	while (map[0][i] != '\n' && map[0][i])
+	while (map[0][i])
 	{
 		if (map[0][i] != '1')
 			return (0);
@@ -34,7 +34,7 @@ int	is_closed(char **map, int rows)
 	}
 	while (j < rows -1)
 	{
-		if (map[j][0] != '1' || map[j][ft_strlen(map[j]) - 2] != '1')
+		if (map[j][0] != '1' || map[j][ft_strlen(map[j]) - 1] != '1')
 			return (0);
 		j++;
 	}
@@ -46,9 +46,7 @@ int	is_rectangular(char **map, int rows)
 	int	i;
 
 	i = 1;
-	if (ft_strlen(map[0]) - 1 != ft_strlen(map[rows - 1]))
-		return (0);
-	while (i < rows - 1)
+	while (i < rows)
 	{
 		if (ft_strlen(map[0]) != ft_strlen(map[i]))
 			return (0);
@@ -69,7 +67,7 @@ int	check_items(t_data *data)
 		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'P')
-				data->position++;
+				data->start++;
 			if (data->map[i][j] == 'E')
 				data->exit++;
 			if (data->map[i][j++] == 'C')
@@ -77,7 +75,7 @@ int	check_items(t_data *data)
 		}
 		i++;
 	}
-	if (data->position != 1)
+	if (data->start != 1)
 		return (0);
 	if (data->exit != 1)
 		return (0);
@@ -88,16 +86,14 @@ int	check_items(t_data *data)
 
 int	check_map(t_data *data)
 {
-	int	rows;
-
-	rows = tab_len(data->map);
-	if (is_rectangular(data->map, rows) == 0)
+	if (is_rectangular(data->map, data->rows) == 0)
 		map_error(data, 4, "map must be rectangular\n");
-	if (is_closed(data->map, rows) == 0)
+	if (is_closed(data->map, data->rows) == 0)
 		map_error(data, 5, "map must be closed\n");
 	if (check_items(data) == 0)
 		map_error(data, 6, "map must contains 1 'E', 1 'P' & at least 1 'C'\n");
-	if (is_playable(data, rows) == 0)
+	if (is_playable(data, data->rows) == 0)
 		map_error(data, 7, "map is not playable\n");
+	ft_display_tab(data->map);
 	return (0);
 }

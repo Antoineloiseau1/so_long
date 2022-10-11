@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:15:31 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/10 13:11:03 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:04:32 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	**get_map(int fd)
 	tmp = lst;
 	while (tmp)
 	{
-		map[i] = (char *)tmp->content;
+		map[i] = (char *)tmp->content ;
 		tmp = tmp->next;
 		i++;
 	}

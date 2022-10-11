@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/10 17:41:41 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:50:14 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ typedef struct s_coord
 typedef struct s_data
 {
 	char	**map;
-	int		position;
+	int		rows;
+	int		start;
 	int		exit;
 	int		items;
-	t_coord	*pos;
+	int		x;
+	int		y;
 }			t_data;
 
 void	init_data(t_data *data, int fd);
@@ -54,6 +56,7 @@ int		is_playable(t_data *data, int rows);
 //utils:
 int		tab_len(char **tab);
 int		get_position(t_data *data, int rows, char c);
+char	**cut_endl(char **strings);
 
 //errors:
 

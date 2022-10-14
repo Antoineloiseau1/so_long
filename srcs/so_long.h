@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/11 13:50:14 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:27:06 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_mlx
 typedef struct s_coord
 {
 	int	x;
-	int y;
+	int	y;
 }			t_coord;
 
 typedef struct s_data
@@ -57,6 +57,7 @@ int		is_playable(t_data *data, int rows);
 int		tab_len(char **tab);
 int		get_position(t_data *data, int rows, char c);
 char	**cut_endl(char **strings);
+int		is_valid_element(char c);
 
 //errors:
 

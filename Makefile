@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+         #
+#    By: antoine <antoine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 17:24:39 by anloisea          #+#    #+#              #
-#    Updated: 2022/10/10 17:26:11 by anloisea         ###   ########.fr        #
+#    Updated: 2022/10/14 11:59:01 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ OBJS		=	${SRCS:.c=.o}
 HDR			=	so_long.h
 CFLAGS		= 	-Wall -Wextra -Werror
 CC			= 	gcc
-MLX	= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
-//MLX_LINUX 	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+//MLX	= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
+MLX 	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 INCLUDE		= -I /usr/local/include/			
 LIB			= ./libft/libft.a
 

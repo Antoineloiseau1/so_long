@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_playable.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:25:33 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/11 17:08:40 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:01:53 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ int	is_safe(t_data *data, int x, int y)
 
 int	is_playable(t_data *data, int rows)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	get_position(data, rows, 'P');
 	while (1)
@@ -77,7 +77,7 @@ int	is_playable(t_data *data, int rows)
 			return (1);
 		if (is_safe(data, x, y) == 0)
 			if (get_position(data, rows, 'P') == 0)
-				break;
+				break ;
 	}
 	return (0);
 }

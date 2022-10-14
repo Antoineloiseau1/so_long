@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:41:28 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/11 14:55:09 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:40:20 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,35 @@ int	check_items(t_data *data)
 	return (1);
 }
 
+int	check_for_extra(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (is_valid_element(data->map[i][j]) == 0)
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	check_map(t_data *data)
 {
-	if (is_rectangular(data->map, data->rows) == 0)
-		map_error(data, 4, "map must be rectangular\n");
+	ft_display_tab(data->map);
+	if (check_for_extra(data))
+		map_error(data, 8, "map contains undesired element(s)\n");
 	if (is_closed(data->map, data->rows) == 0)
 		map_error(data, 5, "map must be closed\n");
+	if (is_rectangular(data->map, data->rows) == 0)
+		map_error(data, 4, "map must be rectangular\n");
 	if (check_items(data) == 0)
 		map_error(data, 6, "map must contains 1 'E', 1 'P' & at least 1 'C'\n");
 	if (is_playable(data, data->rows) == 0)

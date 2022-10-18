@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:01:47 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/11 13:51:03 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/18 11:35:51 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ void	init_data(t_data *data, int fd)
 	data->map = get_map(fd);
 	data->map = cut_endl(data->map);
 	data->rows = tab_len(data->map);
+	data->tmp = copy_map(data);
 }

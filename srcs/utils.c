@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:09:13 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/14 12:25:01 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/18 11:40:00 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ int	tab_len(char **tab)
 	return (i);
 }
 
-int	get_position(t_data *data, int rows, char c)
+int	get_position(t_data *data, char ** map, char c)
 {
 	int	x;
 	int	y;
 
 	x = 1;
-	while (x < rows - 1)
+	while (x < data->rows - 1)
 	{
 		y = 0;
-		while (data->map[x][y])
+		while (map[x][y])
 		{
-			if (data->map[x][y] == c)
+			if (map[x][y] == c)
 			{
 				data->x = x;
 				data->y = y;
@@ -78,4 +78,20 @@ int	is_valid_element(char c)
 		return (1);
 	else
 		return (0);
+}
+
+char **copy_map(t_data *data)
+{
+	int	i;
+	char **copy;
+
+	copy = malloc((data->rows + 1) * sizeof(*copy) );
+	i = 0;
+	while (data->map[i])
+	{
+		copy[i] = ft_strdup(data->map[i]);
+		i++;
+	}
+	copy[i] = NULL;
+	return(copy);
 }

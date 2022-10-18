@@ -6,11 +6,17 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 15:48:12 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/14 13:55:30 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/18 15:50:27 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	get_keys(int key, void *param)
+{
+	(void)param;
+	return (key);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -29,13 +35,17 @@ int	main(int argc, char *argv[])
 	}
 	if (ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])) == NULL)
 		error(2, "map format must be .ber\n");
-	mlx = malloc(sizeof(t_mlx));
 	data = malloc(sizeof(t_data));
+	mlx = malloc(sizeof(t_mlx));
 	init_data(data, fd);
 	close(fd);
 	check_map(data);
+	mlx->ptr = mlx_init();
+	mlx->win = mlx_new_window(mlx->ptr, ft_strlen(data->map[0]) * 64 , data->rows * 64, "so_long");
+	print_background(data, mlx);
+	place_player(data, mlx);
+	mlx_loop(mlx->ptr);
 	free_data(data);
-	free(mlx);
-	//system("leaks so_long");
+	free(mlx->ptr);
 	return (0);
 }

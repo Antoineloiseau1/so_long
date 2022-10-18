@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:41:28 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/14 12:40:20 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/18 12:48:32 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ int	check_for_extra(t_data *data)
 
 int	check_map(t_data *data)
 {
-	ft_display_tab(data->map);
 	if (check_for_extra(data))
 		map_error(data, 8, "map contains undesired element(s)\n");
 	if (is_closed(data->map, data->rows) == 0)
@@ -115,8 +114,7 @@ int	check_map(t_data *data)
 		map_error(data, 4, "map must be rectangular\n");
 	if (check_items(data) == 0)
 		map_error(data, 6, "map must contains 1 'E', 1 'P' & at least 1 'C'\n");
-	if (is_playable(data, data->rows) == 0)
+	if (is_playable(data) == 0)
 		map_error(data, 7, "map is not playable\n");
-	ft_display_tab(data->map);
 	return (0);
 }

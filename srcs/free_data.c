@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:24:37 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/11 16:51:39 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/18 11:43:52 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ void	free_data(t_data *data)
 		free(data->map[i]);
 		i++;
 	}
+	i = 0;
+	while(data->tmp[i])
+	{
+		free(data->tmp[i]);
+		i++;
+	}
+	free(data->tmp);
 	free(data->map);
 	free(data);
 }

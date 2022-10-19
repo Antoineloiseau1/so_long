@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/18 15:53:40 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/19 12:05:35 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_data
 {
 	char	**map;
 	char	**tmp;
+	void	*ptr;
+	void	*win;
 	int		rows;
 	int		start;
 	int		exit;
@@ -47,7 +49,7 @@ typedef struct s_data
 	int		y;
 }			t_data;
 
-void	init_data(t_data *data, int fd);
+void	init_data(t_data *data, char **argv);
 void	free_data(t_data *data);
 
 //parsing:
@@ -64,8 +66,8 @@ int		is_valid_element(char c);
 char 	**copy_map(t_data *data);
 
 //print/
-void	print_background(t_data *data, t_mlx *mlx);
-void	place_player(t_data *data, t_mlx *mlx);
+void	print_background(t_data *data);
+void	place_player(t_data *data);
 
 //errors:
 

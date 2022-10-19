@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:09:13 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/18 11:40:00 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/19 12:37:32 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char	**cut_endl(char **strings)
 				tmp = strings[i];
 				strings[i] = ft_substr(tmp, 0, j);
 				free (tmp);
+				break ;
 			}
 			j++;
 		}

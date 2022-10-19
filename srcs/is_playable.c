@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:25:33 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/18 11:40:58 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/19 12:43:42 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int	is_playable(t_data *data)
 {
 	int	x;
 	int	y;
-
 
 	get_position(data, data->tmp, 'P');
 	while (1)

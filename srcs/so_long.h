@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/19 12:05:35 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/19 16:48:41 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ char 	**copy_map(t_data *data);
 //print/
 void	print_background(t_data *data);
 void	place_player(t_data *data);
+void	print_walls(t_data *data);
 
 //errors:
 

@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/22 14:41:41 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/22 17:31:30 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 
 typedef struct s_image
 {
-	void	*bg;
-	void	*pacman;
 	void	*wall;
+	void	*pm_d;
+	void	*pm_u;
+	void	*pm_l;
+	void	*pm_r;
 	void	*item;
 	void	*exit;
 }			t_image;
@@ -46,6 +48,7 @@ typedef struct s_data
 void	init_data(t_data *data, char **argv);
 void	free_data(t_data *data);
 void	init_mlx(t_data *data);
+void	free_mlx(t_data *data);
 
 //parsing:
 

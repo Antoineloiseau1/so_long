@@ -6,26 +6,17 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 15:48:12 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/22 14:44:58 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/22 17:35:41 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int mouse(t_data *data)
-{
-	(void)data;
-	ft_printf("what is happening?\n");
-	sleep(1);
-	return (0);
-}
-
 int	leave(int key, t_data *data)
 {
 	if (key == 65307)
 	{
-		mlx_destroy_window(data->ptr, data->win);
-		free(data->ptr);
+		free_mlx(data);
 		free_data(data);
 		exit(0);
 	}
@@ -44,11 +35,8 @@ int	main(int argc, char *argv[])
 	init_data(data, argv);
 	init_mlx(data);
 	print_map(data);
-	// print_background(data);
-	// print_walls(data);
-	// place_player(data);
+	ft_printf("map printed\n");
 	mlx_key_hook(data->win, leave, data);
-	mlx_mouse_move(data->ptr, data->win, 10, 10);
 	mlx_loop(data->ptr);
 	free_data(data);
 	free(data->win);

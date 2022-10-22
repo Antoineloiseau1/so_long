@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:09:13 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/19 12:37:32 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/22 14:33:07 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ char **copy_map(t_data *data)
 	int	i;
 	char **copy;
 
-	copy = malloc((data->rows + 1) * sizeof(*copy) );
+	copy = malloc((data->rows + 1) * sizeof(*copy));
+	if (!copy)
+		return (NULL);
 	i = 0;
 	while (data->map[i])
 	{

@@ -6,7 +6,7 @@
 #    By: antoine <antoine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 17:24:39 by anloisea          #+#    #+#              #
-#    Updated: 2022/10/18 15:08:04 by antoine          ###   ########.fr        #
+#    Updated: 2022/10/22 14:08:25 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS		= 	./srcs/main.c \
 				./srcs/init_data.c \
 				./srcs/utils.c \
 				./srcs/is_playable.c \
-				./srcs/print_tiles.c
+				./srcs/print_tiles.c \
+				./srcs/init_mlx.c
 				
 OBJS		=	${SRCS:.c=.o}
 

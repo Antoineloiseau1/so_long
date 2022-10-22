@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/19 16:48:41 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/22 14:41:41 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,20 @@
 # include <mlx.h>
 # include <stdio.h>
 
-# define IMG_W 128
-# define IMG_H 128
-
-typedef struct s_mlx
+typedef struct s_image
 {
-	void		*ptr;
-	void		*img;
-	void		*win;
-}				t_mlx;
-
-typedef struct s_coord
-{
-	int	x;
-	int	y;
-}			t_coord;
+	void	*bg;
+	void	*pacman;
+	void	*wall;
+	void	*item;
+	void	*exit;
+}			t_image;
 
 typedef struct s_data
 {
 	char	**map;
 	char	**tmp;
+	t_image	img;
 	void	*ptr;
 	void	*win;
 	int		rows;
@@ -51,6 +45,7 @@ typedef struct s_data
 
 void	init_data(t_data *data, char **argv);
 void	free_data(t_data *data);
+void	init_mlx(t_data *data);
 
 //parsing:
 
@@ -69,6 +64,7 @@ char 	**copy_map(t_data *data);
 void	print_background(t_data *data);
 void	place_player(t_data *data);
 void	print_walls(t_data *data);
+void	print_map(t_data *data);
 
 //errors:
 

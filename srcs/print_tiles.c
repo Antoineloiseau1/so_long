@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:00:20 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/19 17:11:12 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/22 14:43:24 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,26 @@ void	print_walls(t_data *data)
 			y++;
 		}
 		x++;
+	}
+}
+
+void	print_map(t_data *data)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (data->map[x])
+	{
+		y = 0;
+		while (data->map[x][y])
+		{
+			if (data->map[x][y] == '1')
+				mlx_put_image_to_window(data->ptr, data->win, data->img.wall, x, y);
+			else if (data->map[x][y] == 'P')
+				mlx_put_image_to_window(data->ptr, data->win, data->img.pacman, x, y);
+			else
+				mlx_put_image_to_window(data->ptr, data->win, data->img.bg, x, y);
+		}
 	}
 }

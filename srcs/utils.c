@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:09:13 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/22 14:33:07 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/23 15:45:56 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	tab_len(char **tab)
 	return (i);
 }
 
-int	get_position(t_data *data, char ** map, char c)
+int	get_position(t_data *data, char **map, char c)
 {
 	int	x;
 	int	y;
@@ -72,7 +72,6 @@ char	**cut_endl(char **strings)
 	return (strings);
 }
 
-
 int	is_valid_element(char c)
 {
 	if (c == '0' || c == '1' || c == 'E' || c == 'P' || c == 'C')
@@ -81,10 +80,10 @@ int	is_valid_element(char c)
 		return (0);
 }
 
-char **copy_map(t_data *data)
+char	**copy_map(t_data *data)
 {
-	int	i;
-	char **copy;
+	int		i;
+	char	**copy;
 
 	copy = malloc((data->rows + 1) * sizeof(*copy));
 	if (!copy)
@@ -96,5 +95,5 @@ char **copy_map(t_data *data)
 		i++;
 	}
 	copy[i] = NULL;
-	return(copy);
+	return (copy);
 }

@@ -6,7 +6,7 @@
 #    By: antoine <antoine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 17:24:39 by anloisea          #+#    #+#              #
-#    Updated: 2022/10/23 11:20:15 by antoine          ###   ########.fr        #
+#    Updated: 2022/10/23 16:00:55 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS		= 	./srcs/main.c \
 				./srcs/get_map.c \
 				./srcs/free_data.c \
 				./srcs/check_map.c \
-				./srcs/error.c \
+				./srcs/exit.c \
 				./srcs/init_data.c \
 				./srcs/utils.c \
 				./srcs/is_playable.c \
@@ -29,13 +29,13 @@ OBJS		=	${SRCS:.c=.o}
 HDR			=	so_long.h
 CFLAGS		= 	-Wall -Wextra -Werror
 CC			= 	gcc
-//MLX	= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
-MLX 	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+//MLX		= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
+MLX 		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 INCLUDE		= -I /usr/local/include/			
 LIB			= ./libft/libft.a
 
 %.o: %.c
-	$(CC) ${CFLAGS} -I/usr/include -Imlx_linux -O3 -c $< -o $@
+			$(CC) ${CFLAGS} -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 all:		${LIB} ${NAME}
 

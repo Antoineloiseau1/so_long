@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/23 13:32:45 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/23 16:04:14 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <mlx.h>
 # include <stdio.h>
 
+# define IMG_W 64
+# define IMG_H 64
 # define Z 119
 # define Q 97
 # define S 115
@@ -74,7 +76,7 @@ int		tab_len(char **tab);
 int		get_position(t_data *data, char **map, char c);
 char	**cut_endl(char **strings);
 int		is_valid_element(char c);
-char 	**copy_map(t_data *data);
+char	**copy_map(t_data *data);
 
 //print/
 void	print_background(t_data *data);
@@ -82,14 +84,16 @@ void	place_player(t_data *data);
 void	print_walls(t_data *data);
 void	print_map(t_data *data);
 
-//errors:
+//quit:
 
 void	error(int errnum, char *msg);
 void	open_error(char *arg);
 void	map_error(t_data *data, int errnum, char *msg);
+void	leave(t_data *data);
 
 //game:
 
 void	game(t_data *data);
+int		get_key(int key, t_data *data);
 
 #endif

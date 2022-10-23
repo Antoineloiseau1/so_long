@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:24:37 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/22 15:48:56 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/23 14:51:31 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_data(t_data *data)
 		i++;
 	}
 	i = 0;
-	while(data->tmp[i])
+	while (data->tmp[i])
 	{
 		free(data->tmp[i]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:41:28 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/22 14:37:49 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/23 14:50:46 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,10 @@ int	check_for_extra(t_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			//ft_printf("%c", data->map[i][j]);
 			if (is_valid_element(data->map[i][j]) == 0)
 				return (1);
 			j++;
 		}
-		//ft_printf("\n");
 		i++;
 	}
 	return (0);

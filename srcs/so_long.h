@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/22 17:31:30 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/23 13:32:45 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,19 @@
 # include <mlx.h>
 # include <stdio.h>
 
+# define Z 119
+# define Q 97
+# define S 115
+# define D 100
+# define ESC 65307
+# define UP 65362
+# define LEFT 65361
+# define DOWN 65364
+# define RIGHT 65363
+
 typedef struct s_image
 {
+	void	*bg;
 	void	*wall;
 	void	*pm_d;
 	void	*pm_u;
@@ -41,6 +52,7 @@ typedef struct s_data
 	int		start;
 	int		exit;
 	int		items;
+	int		step;
 	int		x;
 	int		y;
 }			t_data;
@@ -55,6 +67,7 @@ void	free_mlx(t_data *data);
 char	**get_map(int fd);
 int		check_map(t_data *data);
 int		is_playable(t_data *data);
+int		check_items(t_data *data);
 
 //utils:
 int		tab_len(char **tab);
@@ -74,5 +87,9 @@ void	print_map(t_data *data);
 void	error(int errnum, char *msg);
 void	open_error(char *arg);
 void	map_error(t_data *data, int errnum, char *msg);
+
+//game:
+
+void	game(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:00:20 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/22 17:37:37 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/23 13:42:27 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	print_map(t_data *data)
 		y = 0;
 		while (data->map[x][y])
 		{
-			ft_printf("%c", data->map[x][y]);
 			if (data->map[x][y] == '1')
 				mlx_put_image_to_window(data->ptr, data->win, data->img.wall, y * 64, x * 64);
 			if (data->map[x][y] == 'P')
@@ -34,7 +33,6 @@ void	print_map(t_data *data)
 				mlx_put_image_to_window(data->ptr, data->win, data->img.exit, y * 64, x * 64);
 			y++;
 		}
-		ft_printf("\n");
 		x++;
 	}
 }

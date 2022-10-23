@@ -6,22 +6,11 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 15:48:12 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/22 17:35:41 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/23 13:03:06 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	leave(int key, t_data *data)
-{
-	if (key == 65307)
-	{
-		free_mlx(data);
-		free_data(data);
-		exit(0);
-	}
-	return (0);	
-}
 
 int	main(int argc, char *argv[])
 {
@@ -35,8 +24,10 @@ int	main(int argc, char *argv[])
 	init_data(data, argv);
 	init_mlx(data);
 	print_map(data);
-	ft_printf("map printed\n");
-	mlx_key_hook(data->win, leave, data);
+	check_items(data);
+	get_position(data, data->map, 'P');
+	data->map[data->x][data->y] = '0';
+	game(data);
 	mlx_loop(data->ptr);
 	free_data(data);
 	free(data->win);

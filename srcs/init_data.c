@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:01:47 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/22 17:46:39 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/23 13:35:26 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	init_data(t_data *data, char **argv)
 	data->exit = 0;
 	data->items = 0;
 	data->start = 0;
+	data->step = 0;
 	data->map = get_map(fd);
 	close(fd);
 	data->map = cut_endl(data->map);

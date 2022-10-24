@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:09:13 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/23 15:45:56 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/24 15:01:25 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	tab_len(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-		i++;
-	return (i);
-}
 
 int	get_position(t_data *data, char **map, char c)
 {
@@ -44,32 +34,6 @@ int	get_position(t_data *data, char **map, char c)
 		x++;
 	}
 	return (0);
-}
-
-char	**cut_endl(char **strings)
-{
-	int		i;
-	int		j;
-	char	*tmp;
-
-	i = 0;
-	while (strings[i])
-	{
-		j = 0;
-		while (strings[i][j])
-		{
-			if (strings[i][j] == '\n')
-			{
-				tmp = strings[i];
-				strings[i] = ft_substr(tmp, 0, j);
-				free (tmp);
-				break ;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (strings);
 }
 
 int	is_valid_element(char c)

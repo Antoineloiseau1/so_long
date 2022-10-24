@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 15:48:12 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/23 16:34:42 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/24 18:59:10 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	get_click(void)
+{
+	ft_printf("Try again next time\n");
+	leave();
+	return (0);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -28,6 +35,7 @@ int	main(int argc, char *argv[])
 	get_position(data, data->map, 'P');
 	data->map[data->x][data->y] = '0';
 	mlx_key_hook(data->win, get_key, data);
+	mlx_hook(data->win, 17, 0, get_click, data);
 	mlx_loop(data->ptr);
 	return (0);
 }

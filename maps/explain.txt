@@ -1,0 +1,3 @@
+aff map
+aff collecible
+aff move perso

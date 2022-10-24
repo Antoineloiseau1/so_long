@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 11:13:41 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/23 16:13:19 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/24 18:55:27 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	move_up(t_data *data, int x, int y)
 {
 	mlx_put_image_to_window(data->ptr, data->win, \
 							data->img.pm_u, y * 64, x * 64);
-	if (data->map[x - 1][y] == '1' \
-	|| (data->map[x - 1][y] == 'E' && data->items != 0))
+	if (data->map[x - 1][y] == '1')
 		return ;
 	mlx_put_image_to_window(data->ptr, data->win, data->img.bg, y * 64, x * 64);
 	if (data->map[x - 1][y] == '0')
@@ -30,10 +29,13 @@ void	move_up(t_data *data, int x, int y)
 		mlx_put_image_to_window(data->ptr, data->win, \
 								data->img.pm_u, y * 64, (--data->x) * 64);
 	}
+	if (data->map[x - 1][y] == 'E')
+		mlx_put_image_to_window(data->ptr, data->win, \
+								data->img.pm_u, y * 64, (--data->x) * 64);
 	if (data->map[x - 1][y] == 'E' && data->items == 0)
 	{
 		ft_printf("You finished the game with %d steps\n", data->step);
-		leave(data);
+		leave();
 	}
 	ft_printf("Steps: %d\n", ++data->step);
 }
@@ -59,7 +61,7 @@ void	move_left(t_data *data, int x, int y)
 	if (data->map[x][y - 1] == 'E' && data->items == 0)
 	{
 		ft_printf("You finished the game with %d steps\n", data->step);
-		leave(data);
+		leave();
 	}
 	ft_printf("Steps: %d\n", ++data->step);
 }
@@ -85,7 +87,7 @@ void	move_right(t_data *data, int x, int y)
 	if (data->map[x][y + 1] == 'E' && data->items == 0)
 	{
 		ft_printf("You finished the game with %d steps\n", data->step);
-		leave(data);
+		leave();
 	}
 	ft_printf("Steps: %d\n", ++data->step);
 }
@@ -111,7 +113,7 @@ void	move_down(t_data *data, int x, int y)
 	if (data->map[x + 1][y] == 'E' && data->items == 0)
 	{
 		ft_printf("You finished the game with %d steps\n", data->step);
-		leave(data);
+		leave();
 	}
 	ft_printf("Steps: %d\n", ++data->step);
 }
@@ -121,11 +123,11 @@ int	get_key(int key, t_data *data)
 	if (key == ESC)
 	{
 		ft_printf("Try again next time\n");
-		leave(data);
+		leave();
 	}
-	if (key == Z || key == UP)
+	if (key == W || key == UP)
 		move_up(data, data->x, data->y);
-	if (key == Q || key == LEFT)
+	if (key == A || key == LEFT)
 		move_left(data, data->x, data->y);
 	if (key == S || key == DOWN)
 		move_down(data, data->x, data->y);

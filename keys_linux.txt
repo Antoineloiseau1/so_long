@@ -1,9 +1,0 @@
-a is 119
-q is 97
-s is 115
-d = 100
-esc = 65307
-up is 65362
-left is 65361
-down is 65364
-right is 65363

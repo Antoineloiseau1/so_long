@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 09:44:30 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/05 11:25:36 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/24 15:01:04 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,10 @@ int		ft_is_endline(char *save);
 char	*ft_read_file(int fd, char *save);
 char	*ft_get_line(char *save);
 char	*ft_clean_save(char *save);
+
+// Self-made:
+
+int		tab_len(char **tab);
+char	**cut_endl(char **strings);
 
 #endif

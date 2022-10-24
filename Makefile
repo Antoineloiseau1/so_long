@@ -3,34 +3,32 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antoine <antoine@student.42.fr>            +#+  +:+       +#+         #
+#    By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 17:24:39 by anloisea          #+#    #+#              #
-#    Updated: 2022/10/23 16:00:55 by antoine          ###   ########.fr        #
+#    Updated: 2022/10/24 15:47:07 by anloisea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 SRCS		= 	./srcs/main.c \
 				./srcs/get_map.c \
-				./srcs/free_data.c \
+				./srcs/free.c \
 				./srcs/check_map.c \
 				./srcs/exit.c \
-				./srcs/init_data.c \
+				./srcs/init.c \
 				./srcs/utils.c \
 				./srcs/is_playable.c \
-				./srcs/print_tiles.c \
-				./srcs/init_mlx.c \
-				./srcs/free_mlx.c \
+				./srcs/print_map.c \
 				./srcs/game.c
 				
 OBJS		=	${SRCS:.c=.o}
 
 HDR			=	so_long.h
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-g -Wall -Wextra -Werror
 CC			= 	gcc
-//MLX		= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
-MLX 		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLX			= -L /usr/local/lib/ -lmlx -framework Opengl -framework Appkit
+//MLX 		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 INCLUDE		= -I /usr/local/include/			
 LIB			= ./libft/libft.a
 

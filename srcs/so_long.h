@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/23 16:04:14 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/24 19:01:04 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@
 
 # define IMG_W 64
 # define IMG_H 64
-# define Z 119
-# define Q 97
-# define S 115
-# define D 100
-# define ESC 65307
-# define UP 65362
-# define LEFT 65361
-# define DOWN 65364
-# define RIGHT 65363
+# define W 13
+# define A 0
+# define S 1
+# define D 2
+# define ESC 53
+# define UP 126
+# define LEFT 123
+# define DOWN 125
+# define RIGHT 124
 
 typedef struct s_image
 {
@@ -79,9 +79,7 @@ int		is_valid_element(char c);
 char	**copy_map(t_data *data);
 
 //print/
-void	print_background(t_data *data);
-void	place_player(t_data *data);
-void	print_walls(t_data *data);
+
 void	print_map(t_data *data);
 
 //quit:
@@ -89,11 +87,11 @@ void	print_map(t_data *data);
 void	error(int errnum, char *msg);
 void	open_error(char *arg);
 void	map_error(t_data *data, int errnum, char *msg);
-void	leave(t_data *data);
+void	leave(void);
 
 //game:
 
-void	game(t_data *data);
 int		get_key(int key, t_data *data);
+
 
 #endif

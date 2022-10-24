@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   cut_endl.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/25 19:04:16 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/24 15:29:55 by anloisea         ###   ########.fr       */
+/*   Created: 2022/10/24 15:00:24 by anloisea          #+#    #+#             */
+/*   Updated: 2022/10/24 15:01:42 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst)
+char	**cut_endl(char **strings)
 {
-	t_list	*tmp;
+	int		i;
+	int		j;
+	char	*tmp;
 
-	tmp = *lst;
-	while (tmp)
+	i = 0;
+	while (strings[i])
 	{
-		*lst = (*(lst))->next;
-		free(tmp);
-		tmp = *lst;
+		j = 0;
+		while (strings[i][j])
+		{
+			if (strings[i][j] == '\n')
+			{
+				tmp = strings[i];
+				strings[i] = ft_substr(tmp, 0, j);
+				free (tmp);
+				break ;
+			}
+			j++;
+		}
+		i++;
 	}
+	return (strings);
 }

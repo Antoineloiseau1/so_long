@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:45:25 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/23 16:11:29 by antoine          ###   ########.fr       */
+/*   Updated: 2022/10/24 16:13:30 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void	map_error(t_data *data, int errnum, char *msg)
 	exit(errnum);
 }
 
-void	leave(t_data *data)
+void	leave(void)
 {
-	free_mlx(data);
-	free_data(data);
 	exit(0);
 }

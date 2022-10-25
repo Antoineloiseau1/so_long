@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 09:44:30 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/24 15:01:04 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:11:02 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int		ft_is_endline(char *save);
 char	*ft_read_file(int fd, char *save);
 char	*ft_get_line(char *save);
 char	*ft_clean_save(char *save);
+char	*ft_strrnstr(const char *haystack, const char *needle, size_t len);
 
 // Self-made:
 

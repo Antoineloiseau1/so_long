@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 11:13:41 by antoine           #+#    #+#             */
-/*   Updated: 2022/10/25 11:55:40 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:58:30 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,18 @@ void	move_up(t_data *data, int x, int y)
 		return ;
 	mlx_put_image_to_window(data->ptr, data->win, \
 							data->img.bg, y * 64, x * 64);
-	if (data->map[x - 1][y] == '0')
-		data->x--;
 	if (data->map[x - 1][y] == 'C')
 	{
-		data->x--;
 		data->items--;
 		data->map[x - 1][y] = '0';
 	}
-	if (data->map[x - 1][y] == 'E')
+	if (data->map[x - 1][y] == 'E' && data->items == 0)
 	{
-		data->x--;
-		if (data->items == 0)
-			leave();
+		data->step++;
+		ft_printf("You finished the game with %d steps\n", data->step);
+		leave();
 	}
+	data->x--;
 	mlx_put_image_to_window(data->ptr, data->win, \
 							data->img.pm_u, y * 64, data->x * 64);
 	ft_printf("Steps: %d\n", ++data->step);
@@ -47,20 +45,18 @@ void	move_left(t_data *data, int x, int y)
 		return ;
 	mlx_put_image_to_window(data->ptr, data->win, \
 							data->img.bg, y * 64, x * 64);
-	if (data->map[x][y - 1] == '0')
-		data->y--;
 	if (data->map[x][y - 1] == 'C')
 	{
-		data->y--;
 		data->items--;
 		data->map[x][y - 1] = '0';
 	}
-	if (data->map[x][y - 1] == 'E')
+	if (data->map[x][y - 1] == 'E' && data->items == 0)
 	{
-		data->y--;
-		if (data->items == 0)
-			leave();
+		data->step++;
+		ft_printf("You finished the game with %d steps\n", data->step);
+		leave();
 	}
+	data->y--;
 	mlx_put_image_to_window(data->ptr, data->win, \
 							data->img.pm_l, data->y * 64, x * 64);
 	ft_printf("Steps: %d\n", ++data->step);
@@ -74,20 +70,18 @@ void	move_right(t_data *data, int x, int y)
 		return ;
 	mlx_put_image_to_window(data->ptr, data->win, \
 							data->img.bg, y * 64, x * 64);
-	if (data->map[x][y + 1] == '0')
-		data->y++;
 	if (data->map[x][y + 1] == 'C')
 	{
-		data->y++;
 		data->items--;
 		data->map[x][y + 1] = '0';
 	}
-	if (data->map[x][y + 1] == 'E')
+	if (data->map[x][y + 1] == 'E' && data->items == 0)
 	{
-		data->y++;
-		if (data->items == 0)
-			leave();
+		data->step++;
+		ft_printf("You finished the game with %d steps\n", data->step);
+		leave();
 	}
+	data->y++;
 	mlx_put_image_to_window(data->ptr, data->win, \
 							data->img.pm_r, data->y * 64, x * 64);
 	ft_printf("Steps: %d\n", ++data->step);
@@ -101,23 +95,18 @@ void	move_down(t_data *data, int x, int y)
 		return ;
 	mlx_put_image_to_window(data->ptr, data->win, \
 							data->img.bg, y * 64, x * 64);
-	if (data->map[x + 1][y] == '0')
-		data->x++;
 	if (data->map[x + 1][y] == 'C')
 	{
-		data->x++;
 		data->items--;
 		data->map[x + 1][y] = '0';
 	}
-	if (data->map[x + 1][y] == 'E')
+	if (data->map[x + 1][y] == 'E' && data->items == 0)
 	{
-		data->x++;
-		if (data->items == 0)
-		{
-			ft_printf("You finished the game with %d steps\n", data->step);
-			leave();
-		}
+		data->step++;
+		ft_printf("You finished the game with %d steps\n", data->step);
+		leave();
 	}
+	data->x++;
 	mlx_put_image_to_window(data->ptr, data->win, \
 							data->img.pm_d, y * 64, data->x * 64);
 	ft_printf("Steps: %d\n", ++data->step);

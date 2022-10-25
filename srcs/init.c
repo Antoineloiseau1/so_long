@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:01:47 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/25 12:00:40 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:37:07 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	init_data(t_data *data, char **argv)
 		perror(argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	if (ft_strnstr(argv[1], ".ber\0", ft_strlen(argv[1])) == NULL)
-		error(2, "map format must be .ber\n");
+	if (ft_strnstr(argv[1] + ft_strlen(argv[1]) - 4, ".ber", 4) == NULL)
+		error(2, "MAP must be in .ber format\n");
 	data->exit = 0;
 	data->items = 0;
 	data->start = 0;
@@ -46,20 +46,20 @@ void	init_mlx(t_data *data)
 	len = ft_strlen(data->map[0]);
 	data->ptr = mlx_init();
 	data->win = mlx_new_window(data->ptr, len * 64, data->rows * 64, "so_long");
-	data->img.wall = mlx_xpm_file_to_image(data->ptr, "tile/wall.xpm", \
+	data->img.wall = mlx_xpm_file_to_image(data->ptr, "img/wall.xpm", \
 											&width, &height);
-	data->img.bg = mlx_xpm_file_to_image(data->ptr, "tile/bg.xpm", \
+	data->img.bg = mlx_xpm_file_to_image(data->ptr, "img/bg.xpm", \
 											&width, &height);
-	data->img.pm_u = mlx_xpm_file_to_image(data->ptr, "tile/pm_u.xpm", \
+	data->img.pm_u = mlx_xpm_file_to_image(data->ptr, "img/pm_u.xpm", \
 											&width, &height);
-	data->img.pm_d = mlx_xpm_file_to_image(data->ptr, "tile/pm_d.xpm", \
+	data->img.pm_d = mlx_xpm_file_to_image(data->ptr, "img/pm_d.xpm", \
 											&width, &height);
-	data->img.pm_l = mlx_xpm_file_to_image(data->ptr, "tile/pm_l.xpm", \
+	data->img.pm_l = mlx_xpm_file_to_image(data->ptr, "img/pm_l.xpm", \
 											&width, &height);
-	data->img.pm_r = mlx_xpm_file_to_image(data->ptr, "tile/pm_r.xpm", \
+	data->img.pm_r = mlx_xpm_file_to_image(data->ptr, "img/pm_r.xpm", \
 											&width, &height);
-	data->img.item = mlx_xpm_file_to_image(data->ptr, "tile/item.xpm", \
+	data->img.item = mlx_xpm_file_to_image(data->ptr, "img/item.xpm", \
 											&width, &height);
-	data->img.exit = mlx_xpm_file_to_image(data->ptr, "tile/exit.xpm", \
+	data->img.exit = mlx_xpm_file_to_image(data->ptr, "img/exit.xpm", \
 											&width, &height);
 }

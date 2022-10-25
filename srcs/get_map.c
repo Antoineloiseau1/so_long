@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:15:31 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/25 11:57:56 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:12:36 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ char	**get_map(int fd)
 	int		i;
 	char	**map;
 
-	lst = ft_lstnew((char *)get_next_line(fd));
-	tmp = lst;
 	i = 0;
+	lst = ft_lstnew((char *)get_next_line(fd));
+	if (lst->content == NULL)
+		error(15, "MAP is empty\n");
+	tmp = lst;
 	while (tmp->content)
 	{
 		ft_lstadd_back(&lst, ft_lstnew((char *)get_next_line(fd)));
 		tmp = tmp->next;
-		i++;
 	}
-	map = malloc((i + 1) * sizeof(*map));
-	i = 0;
+	map = malloc((ft_lstsize(lst) + 1) * sizeof(*map));
 	tmp = lst;
 	while (tmp)
 	{
@@ -38,6 +38,5 @@ char	**get_map(int fd)
 		i++;
 	}
 	ft_lstclear(&lst);
-	ft_printf(map[0]);
 	return (map);
 }

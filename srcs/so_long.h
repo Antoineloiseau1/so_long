@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:49:08 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/24 19:01:04 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/25 11:20:32 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,5 @@ void	leave(void);
 //game:
 
 int		get_key(int key, t_data *data);
-
 
 #endif

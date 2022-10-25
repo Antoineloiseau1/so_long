@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:01:47 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/24 19:00:41 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:00:40 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_data(t_data *data, char **argv)
 		perror(argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	if (ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])) == NULL)
+	if (ft_strnstr(argv[1], ".ber\0", ft_strlen(argv[1])) == NULL)
 		error(2, "map format must be .ber\n");
 	data->exit = 0;
 	data->items = 0;

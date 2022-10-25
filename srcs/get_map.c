@@ -6,7 +6,7 @@
 /*   By: anloisea <anloisea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:15:31 by anloisea          #+#    #+#             */
-/*   Updated: 2022/10/24 15:27:32 by anloisea         ###   ########.fr       */
+/*   Updated: 2022/10/25 11:57:56 by anloisea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ char	**get_map(int fd)
 		i++;
 	}
 	ft_lstclear(&lst);
+	ft_printf(map[0]);
 	return (map);
 }
